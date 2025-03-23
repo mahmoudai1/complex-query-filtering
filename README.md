@@ -4,7 +4,7 @@
 - [APIs](#apis)
 - [Approaches](#approaches)
 - [Query Structures](#query-structures)
-- [Response]($response)
+- [Response](#response)
 
 
 ## How to run
