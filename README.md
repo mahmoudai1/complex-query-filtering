@@ -11,9 +11,10 @@
 ## Overview
 - Laravel 12 App. to filter jobs based on a complex filter query.
 - Migrations, Factories and Seeders are performed to fill DB with dummy data for (`jobs`, `locations`, `categories`, `languages`, `job_location`, `job_category`, `job_language`, `attributes`, `attribute_job`).
+- `app/Services/JobFilterService` holds the core logic.
 
 ## APIs
-The API is validated through a custom request handler. (`filter`, `offset`, and `length`)
+Validated through a custom request handler. (`filter`, `offset`, and `length`)
 - (GET) `/api/v1/jobs`
 
 ## Approaches
