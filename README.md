@@ -8,7 +8,7 @@
 
 
 ## How to run
-- cd to the <project_folder> and run `php artisan serve` (accessible through `http://127.0.0.1:8000/`).
+- cd to the <project_folder> and run `composer install && php artisan serve` (accessible through `http://127.0.0.1:8000/`).
 
 
 ## Overview
