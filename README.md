@@ -15,8 +15,8 @@
 - Laravel 12 with MySQL App. to filter jobs based on a complex filter query.
 - Migrations, Factories and Seeders are performed to fill DB with dummy data for (`jobs`, `locations`, `categories`, `languages`, `job_location`, `job_category`, `job_language`, `attributes`, `attribute_job`).
 - `app/Services/JobFilterService` holds the core logic.
-- Pagination is applied.
-- Rate Limiting is applied to limit the requests by the user's ip.
+- Custom Pagination is applied.
+- Rate Limiting is applied to limit the requests by the user's IP.
 - Unit tests are written. (`returns jobs matching the complex filter`, `no data found`, `wrong query structure`)
 
 
@@ -127,81 +127,51 @@ array:7 [
 {
     "success": true,
     "message": "Successfully found 1 Job",
-    "data": {
-        "current_page": 1,
-        "data": [
-            {
-                "id": 42,
-                "title": "Command Control Center Specialist",
-                "description": "Sint nesciunt officiis sed non. Dolorum blanditiis natus ut dolor tempore est aspernatur.",
-                "company_name": "Balistreri and Sons",
-                "salary_min": "41457.00",
-                "salary_max": "71291.00",
-                "is_remote": 0,
-                "job_type": "full-time",
-                "status": "archived",
-                "published_at": "2025-03-18 10:07:00",
-                "created_at": "2025-03-23T14:37:49.000000Z",
-                "updated_at": "2025-03-23T14:37:49.000000Z",
-                "languages": [
-                    {
-                        "id": 15,
-                        "name": "PHP",
+    "data": [
+        {
+            "id": 42,
+            "title": "Command Control Center Specialist",
+            "description": "Sint nesciunt officiis sed non. Dolorum blanditiis natus ut dolor tempore est aspernatur.",
+            "company_name": "Balistreri and Sons",
+            "salary_min": "41457.00",
+            "salary_max": "71291.00",
+            "is_remote": 0,
+            "job_type": "full-time",
+            "status": "archived",
+            "published_at": "2025-03-18 10:07:00",
+            "created_at": "2025-03-23T14:37:49.000000Z",
+            "updated_at": "2025-03-23T14:37:49.000000Z",
+            "languages": [
+                {
+                    "id": 15,
+                    "name": "PHP",
+                    "created_at": "2025-03-23T14:37:49.000000Z",
+                    "updated_at": "2025-03-23T14:37:49.000000Z",
+                    "pivot": {
+                        "job_id": 42,
+                        "language_id": 15,
                         "created_at": "2025-03-23T14:37:49.000000Z",
-                        "updated_at": "2025-03-23T14:37:49.000000Z",
-                        "pivot": {
-                            "job_id": 42,
-                            "language_id": 15,
-                            "created_at": "2025-03-23T14:37:49.000000Z",
-                            "updated_at": "2025-03-23T14:37:49.000000Z"
-                        }
+                        "updated_at": "2025-03-23T14:37:49.000000Z"
                     }
-                ],
-                "locations": [
-                    {
-                        "id": 23,
-                        "city": "Remote",
-                        "state": "Florida",
-                        "country": "Macedonia",
+                }
+            ],
+            "locations": [
+                {
+                    "id": 23,
+                    "city": "Remote",
+                    "state": "Florida",
+                    "country": "Macedonia",
+                    "created_at": "2025-03-23T14:37:49.000000Z",
+                    "updated_at": "2025-03-23T14:37:49.000000Z",
+                    "pivot": {
+                        "job_id": 42,
+                        "location_id": 23,
                         "created_at": "2025-03-23T14:37:49.000000Z",
-                        "updated_at": "2025-03-23T14:37:49.000000Z",
-                        "pivot": {
-                            "job_id": 42,
-                            "location_id": 23,
-                            "created_at": "2025-03-23T14:37:49.000000Z",
-                            "updated_at": "2025-03-23T14:37:49.000000Z"
-                        }
+                        "updated_at": "2025-03-23T14:37:49.000000Z"
                     }
-                ]
-            }
-        ],
-        "first_page_url": "http://127.0.0.1:8000/api/v1/jobs?page=1",
-        "from": 1,
-        "last_page": 1,
-        "last_page_url": "http://127.0.0.1:8000/api/v1/jobs?page=1",
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-            {
-                "url": "http://127.0.0.1:8000/api/v1/jobs?page=1",
-                "label": "1",
-                "active": true
-            },
-            {
-                "url": null,
-                "label": "Next &raquo;",
-                "active": false
-            }
-        ],
-        "next_page_url": null,
-        "path": "http://127.0.0.1:8000/api/v1/jobs",
-        "per_page": 25,
-        "prev_page_url": null,
-        "to": 1,
-        "total": 1
-    }
+                }
+            ]
+        }
+    ]
 }
 ```
