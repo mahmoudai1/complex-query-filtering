@@ -14,7 +14,7 @@
 - `app/Services/JobFilterService` holds the core logic.
 
 ## APIs
-Validated through a custom request handler. (`filter`, `offset`, and `length`)
+Validated through a custom request handler `JobSearchRequest`. (`filter`, `offset`, and `length`)
 - (GET) `/api/v1/jobs`
 
 ## Approaches
