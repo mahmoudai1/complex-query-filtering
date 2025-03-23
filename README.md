@@ -18,7 +18,7 @@ The API is validated through a custom request handler. (`filter`, `offset`, and 
 
 ## Approaches
 ### Two approaches were available:
-1. Modify the query string in-place, replace every token to produce a final correct sql query.
+1. Modify the query string in-place, replace every token to produce a final correct sql query and use it with `whereRaw`.
    - Example: Replace `HAS_ANY` to `IN`, Replace `locations` to `locations.city`
    - Limitation: Difficult to use eager loading by this approach.
 2. **(Used Approach)** Parse the query string to a nested-objects data structure, each node holds `field`, `operator`, `value`, `logical operator`.
