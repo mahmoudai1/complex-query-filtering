@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('attributes', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('type')->index(); // 'text', 'number', 'boolean', 'date', 'select'
-            $table->json('options')->nullable(); // 'select'
+            $table->enum('type', ['text', 'number', 'boolean', 'date', 'select']);
+            $table->json('options')->nullable(); // 'select' options
             $table->timestamps();
         });
     }
