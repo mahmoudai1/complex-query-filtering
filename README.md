@@ -42,7 +42,7 @@
    - `applyFilters()` is then called with the `$filters` array to get the query prepared.
    - It then handles basic conditions, eager loading conditions, and custom attributes conditions using `applyBasicCondition`, `handleEagerLoadCondition`, `handleAttributeCondition`.
      
-   - EAV is handled by searching for a substring `attribute:`, if found, join `attributes` and `attribute_job ` tables, then, save the key/name followed by the `:`, then a condition is added to the eagerLoadConditions having `attribute.name` = `$attributeKey`, and another condition is added having `attribute.value` = `$value`. example: `where attribute.name = 'years_experience' AND attribute_job.value >= 3`
+   - EAV is handled by searching for a substring `attribute:`, if found, join `attributes` and `attribute_job` tables, then, save the key/name followed by the `:`, then a condition is added to the eagerLoadConditions array having `attribute.name` = `$attributeKey`, and another condition is added having `attribute.value` = `$value`. example: `where attribute.name = 'years_experience' AND attribute_job.value >= 3`
   
    - Prepared query is then called at the `JobController`.
 
