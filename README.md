@@ -1,6 +1,6 @@
 # Table of Contents
 - [How to run](#how-to-run)
-- [Overview & Features](#overview-&-features)
+- [Overview & Features](#overview-and-features)
 - [APIs](#apis)
 - [Approaches](#approaches)
 - [Query Structures](#query-structures)
