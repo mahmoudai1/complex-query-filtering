@@ -19,8 +19,8 @@ class JobController extends Controller
         try {
             $filterString = $request->input('filter');
 
-            $offset = $request->input('offset');
-            $limit = $request->input('limit');
+            $offset = $request->input('offset') ?? 0;
+            $limit = $request->input('limit') ?? 25;
 
             $filters = $filterService->customFilterParser($filterString);
             $query = Job::query()->select('jobs.*');

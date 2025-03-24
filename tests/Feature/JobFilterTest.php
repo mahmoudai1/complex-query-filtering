@@ -1,19 +1,17 @@
 <?php
 
-use Illuminate\Testing\Fluent\AssertableJson;
-
 test('returns jobs matching the complex filter', function () {
     $response = $this->getJson('/api/v1/jobs?filter=(job_type=full-time AND (languages HAS_ANY (PHP,JavaScript))) AND (locations IS_ANY (New York,Remote)) AND attribute:years_experience>=3');
     $response
     ->assertStatus(200)
     ->assertJson([
-        'status' => true,
+        'success' => true,
     ]);
 
     $responseData = $response->json();
 
-    expect($responseData)->toHaveKey('data.data');
-    expect(count($responseData['data']['data']))->toBeGreaterThan(0);
+    expect($responseData)->toHaveKey('data');
+    expect(count($responseData['data']))->toBeGreaterThan(0);
 });
 
 test('no data found', function () {
@@ -21,7 +19,7 @@ test('no data found', function () {
     $response
     ->assertStatus(200)
     ->assertJson([
-        'status' => true,
+        'success' => true,
     ]);
 
     $responseData = $response->json();
@@ -34,6 +32,6 @@ test('wrong query structure', function () {
     $response
     ->assertStatus(500)
     ->assertJson([
-        'status' => false,
+        'success' => false,
     ]);
 });
