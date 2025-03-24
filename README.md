@@ -1,6 +1,6 @@
 # Table of Contents
 - [How to run](#how-to-run)
-- [Overview](#overview)
+- [Overview & Features](#overview-&-features)
 - [APIs](#apis)
 - [Approaches](#approaches)
 - [Query Structures](#query-structures)
@@ -11,9 +11,10 @@
 - cd to the <project_folder> and run `composer install && php artisan serve` (accessible through `http://127.0.0.1:8000/`).
 
 
-## Overview
+## Overview & Features
 - Laravel 12 with MySQL App. to filter jobs based on a complex filter query.
 - Migrations, Factories and Seeders are performed to fill DB with data for (`jobs`, `locations`, `categories`, `languages`, `job_location`, `job_category`, `job_language`, `attributes`, `attribute_job`) tables.
+- Run `php artisan db:seed --class=JobSeeder` to seed.
 - `app/Services/JobFilterService` holds the core logic.
 - Custom Pagination is applied.
 - Rate Limiting is applied to limit the requests by the user's IP.
