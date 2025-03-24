@@ -16,6 +16,7 @@
 - Migrations, Factories and Seeders are performed to fill DB with data for (`jobs`, `locations`, `categories`, `languages`, `job_location`, `job_category`, `job_language`, `attributes`, `attribute_job`) tables.
 - Run `php artisan db:seed --class=JobSeeder` to seed.
 - `app/Services/JobFilterService` holds the core logic.
+- Eager Loading is handled. (To avoid N+1 problem)
 - Custom Pagination is applied.
 - Rate Limiting is applied to limit the requests by the user's IP.
 - Unit tests are written. (`returns jobs matching the complex filter`, `no data found`, `wrong query structure`)
@@ -40,6 +41,9 @@
    - `customFilterParser()` then returns an array `$filters` containing all the parsed conditions each in a single node.
    - `applyFilters()` is then called with the `$filters` array to get the query prepared.
    - It then handles basic conditions, eager loading conditions, and custom attributes conditions using `applyBasicCondition`, `handleEagerLoadCondition`, `handleAttributeCondition`.
+     
+   - EAV is handled by searching for a substring `attribute:`, if found, join `attributes` and `attribute_job ` tables, then, save the key/name followed by the `:`, then a condition is added to the eagerLoadConditions having `attribute.name` = `$attributeKey`, and another condition is added having `attribute.value` = `$value`. example: `where attribute.name = 'years_experience' AND attribute_job.value >= 3`
+  
    - Prepared query is then called at the `JobController`.
 
 
